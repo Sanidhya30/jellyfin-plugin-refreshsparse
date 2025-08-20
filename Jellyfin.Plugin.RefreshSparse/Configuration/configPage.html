@@ -241,6 +241,81 @@
                         </div>
                     </fieldset>
 
+                    <fieldset class="verticalSection verticalSection-extrabottompadding">
+                        <legend>
+                            <h3>Movies</h3>
+                        </legend>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="MovieCooldownDays">Refresh cooldown</label>
+                            <input id="MovieCooldownDays" name="MovieCooldownDays" type="number" is="emby-input" min="-1" />
+                            <div class="fieldDescription">Don't refresh movie if already refreshed within X <b>Days</b>. -1 to disable</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="MovieMinimumProviderIds">Minimum provider IDs</label>
+                            <input id="MovieMinimumProviderIds" name="MovieMinimumProviderIds" type="number" is="emby-input" min="0" />
+                            <div class="fieldDescription">Minimum number of external provider IDs</div>
+                        </div>
+
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input id="MovieOverview" name="MovieOverview" type="checkbox" is="emby-checkbox" />
+                                <span>Missing overview</span>
+                            </label>
+                        </div>
+
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input id="MovieName" name="MovieName" type="checkbox" is="emby-checkbox" />
+                                <span>Missing name</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <h3 class="checkboxListLabel">Missing Images</h3>
+                            <div class="paperList checkboxList checkboxList-paperList" id="MovieImagesList">
+                                <label class="emby-checkbox-label">
+                                    <input id="MoviePrimary" name="MoviePrimary" type="checkbox" is="emby-checkbox" />
+                                    <span>Primary</span>
+                                </label>
+                                <label class="emby-checkbox-label">
+                                    <input id="MovieArt" name="MovieArt" type="checkbox" is="emby-checkbox" />
+                                    <span>Clearart</span>
+                                </label>
+                                <label class="emby-checkbox-label">
+                                    <input id="MovieBanner" name="MovieBanner" type="checkbox" is="emby-checkbox" />
+                                    <span>Banner</span>
+                                </label>
+                                <label class="emby-checkbox-label">
+                                    <input id="MovieLogo" name="MovieLogo" type="checkbox" is="emby-checkbox" />
+                                    <span>Logo</span>
+                                </label>
+                                <label class="emby-checkbox-label">
+                                    <input id="MovieThumb" name="MovieThumb" type="checkbox" is="emby-checkbox" />
+                                    <span>Thumb</span>
+                                </label>
+                                <label class="emby-checkbox-label">
+                                    <input id="MovieBackdrop" name="MovieBackdrop" type="checkbox" is="emby-checkbox" />
+                                    <span>Backdrop</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input id="MovieReplaceAllMetadata" name="MovieReplaceAllMetadata" type="checkbox" is="emby-checkbox" />
+                                <span>Replace all metadata</span>
+                            </label>
+                        </div>
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input id="MovieReplaceAllImages" name="MovieReplaceAllImages" type="checkbox" is="emby-checkbox" />
+                                <span>Replace all images</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
                     <div>
                         <button is="emby-button" type="submit" class="raised button-submit block emby-button">
                             <span>Save</span>
@@ -359,6 +434,22 @@
                     config.SeasonCooldownDays = document.querySelector('#SeasonCooldownDays').value;
                     config.SeasonReplaceAllImages = document.querySelector('#SeasonReplaceAllImages').checked;
                     config.SeasonReplaceAllMetadata = document.querySelector('#SeasonReplaceAllMetadata').checked;
+
+                    // movie
+                    config.MovieMinimumProviderIds = document.querySelector('#MovieMinimumProviderIds').value;
+                    config.MovieOverview = document.querySelector('#MovieOverview').checked;
+                    config.MovieName = document.querySelector('#MovieName').checked;
+
+                    config.MoviePrimary = document.querySelector('#MoviePrimary').checked;
+                    config.MovieArt = document.querySelector('#MovieArt').checked;
+                    config.MovieBanner = document.querySelector('#MovieBanner').checked;
+                    config.MovieLogo = document.querySelector('#MovieLogo').checked;
+                    config.MovieThumb = document.querySelector('#MovieThumb').checked;
+                    config.MovieBackdrop = document.querySelector('#MovieBackdrop').checked;
+
+                    config.MovieCooldownDays = document.querySelector('#MovieCooldownDays').value;
+                    config.MovieReplaceAllImages = document.querySelector('#MovieReplaceAllImages').checked;
+                    config.MovieReplaceAllMetadata = document.querySelector('#MovieReplaceAllMetadata').checked;
 
                     ApiClient.updatePluginConfiguration(RefreshSparseConfig.pluginUniqueId, config).then(function (result) {
                         Dashboard.processPluginConfigurationUpdateResult(result);

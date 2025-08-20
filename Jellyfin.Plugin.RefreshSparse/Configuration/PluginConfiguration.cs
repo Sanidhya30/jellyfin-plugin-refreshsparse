@@ -122,5 +122,30 @@ namespace Jellyfin.Plugin.RefreshSparse.Configuration
         public bool SeasonReplaceAllImages { get; set; }
 
         public bool SeasonReplaceAllMetadata { get; set; }
+
+        // Movie settings
+        public int MovieCooldownDays { get; set; }
+
+        public int MovieMinimumProviderIds { get; set; }
+
+        public bool MovieOverview { get; set; }
+
+        public bool MovieName { get; set; }
+
+        public bool MoviePrimary { get; set; }
+
+        public bool MovieArt { get; set; }
+
+        public bool MovieBanner { get; set; }
+
+        public bool MovieLogo { get; set; }
+
+        public bool MovieThumb { get; set; }
+
+        public bool MovieBackdrop { get; set; }
+
+        public bool MovieReplaceAllImages { get; set; }
+
+        public bool MovieReplaceAllMetadata { get; set; }
     }
 }
