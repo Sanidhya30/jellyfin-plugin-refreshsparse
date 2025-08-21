@@ -380,6 +380,22 @@
                         document.querySelector('#SeasonReplaceAllImages').checked = config.SeasonReplaceAllImages;
                         document.querySelector('#SeasonReplaceAllMetadata').checked = config.SeasonReplaceAllMetadata;
 
+                        // movie
+                        document.querySelector('#MovieMinimumProviderIds').value = config.MovieMinimumProviderIds;
+                        document.querySelector('#MovieOverview').checked = config.MovieOverview;
+                        document.querySelector('#MovieName').checked = config.MovieName;
+
+                        document.querySelector('#MoviePrimary').checked = config.MoviePrimary;
+                        document.querySelector('#MovieArt').checked = config.MovieArt;
+                        document.querySelector('#MovieBanner').checked = config.MovieBanner;
+                        document.querySelector('#MovieLogo').checked = config.MovieLogo;
+                        document.querySelector('#MovieThumb').checked = config.MovieThumb;
+                        document.querySelector('#MovieBackdrop').checked = config.MovieBackdrop;
+
+                        document.querySelector('#MovieCooldownDays').value = config.MovieCooldownDays;
+                        document.querySelector('#MovieReplaceAllImages').checked = config.MovieReplaceAllImages;
+                        document.querySelector('#MovieReplaceAllMetadata').checked = config.MovieReplaceAllMetadata;
+
                         Dashboard.hideLoadingMsg();
                     });
                 });
